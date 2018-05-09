@@ -14,6 +14,11 @@
         "firebrand/silverstripe-hail": "4.0.x-dev",
         "dnadesign/silverstripe-elemental": "2.x-dev"
     },
+    "autoload": {
+        "psr-4": {
+            "Firebrand\\HailElemental\\": "src/"
+        }
+    },
     "extra": {
         "branch-alias": {
           "dev-master": "1.0.x-dev"
