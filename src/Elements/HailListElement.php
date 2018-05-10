@@ -4,9 +4,13 @@ namespace Firebrand\HailElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
 use Firebrand\Hail\Pages\HailPage;
+use Sheadawson\DependentDropdown\Forms\DependentDropdownField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Tab;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\ORM\DataObject;
 use SilverStripe\View\Requirements;
 
 class HailCarouselElement extends BaseElement
@@ -14,6 +18,7 @@ class HailCarouselElement extends BaseElement
     private static $table_name = 'HailCarouselElement';
 
     private static $db = [
+        'FilterTags' => 'Text',
         'Limit' => 'Int',
         'ShowDots' => 'Enum(array("Yes","No"))',
         'LargeToShow' => 'Int',
@@ -53,21 +58,42 @@ class HailCarouselElement extends BaseElement
     {
         $fields = parent::getCMSFields();
 
+        //Multi tabs display
+        $fields->addFieldToTab('Root.Main', TabSet::create('SubTabs', 'SubTabs', [Tab::create('Main'), Tab::create('Style')]));
+
+        //Create new fields
+        $limit = NumericField::create('Limit', 'Limit');
+        $showdots = DropdownField::create('ShowDots', 'Show dots under the carousel', ['Yes' => 'Yes', 'No' => 'No']);
         $page = DropdownField::create('HailPageID', 'Hail Page', HailPage::get());
-        $fields->insertAfter('TitleAndDisplayed', $page);
+        $tag_source = function ($val) {
+            $hailpage = DataObject::get_by_id(HailPage::class, $val);
+            if ($hailpage) {
+                return $hailpage->getAllowedPublicTags();
+            }
+            return [];
+        };
+        $filter_tags = DependentDropdownField::create('FilterTags', 'Public Tag displayed in the carousel', $tag_source)
+            ->setDepends($page);
 
         $large_to_show = NumericField::create('LargeToShow', 'Large screens: Slides to show');
         $large_to_scroll = NumericField::create('LargeToScroll', 'Large screens: Slides to scroll');
         $medium_breakpoint = NumericField::create('MediumBreakpoint',
-            'Medium screens: Breakpoint')->setDescription('The carousel will use the "Medium screens" settings when its width is under this value. In pixels.');
+            'Medium screens: Breakpoint')->setDescription('The carousel will use the "Medium screens" settings when its width is under this value . In pixels . ');
         $medium_to_show = NumericField::create('MediumToShow', 'Medium screens: Slides to show');
         $medium_to_scroll = NumericField::create('MediumToScroll', 'Medium screens: Slides to scroll');
         $small_breakpoint = NumericField::create('SmallBreakpoint',
-            'Small screens: Breakpoint')->setDescription('The carousel will use the "Small screens" settings when its width is under this value. In pixels.');
+            'Small screens: Breakpoint')->setDescription('The carousel will use the "Small screens" settings when its width is under this value . In pixels . ');
         $small_to_show = NumericField::create('SmallToShow', 'Small screens: Slides to show');
         $small_to_scroll = NumericField::create('SmallToScroll', 'Small screens: Slides to scroll');
 
-        $fields->addFieldsToTab('Root.Main', [
+        //Add to tabs
+        $fields->addFieldsToTab('Root.Main.SubTabs.Main', [
+            $page,
+            $filter_tags,
+            $limit,
+            $showdots,
+        ]);
+        $fields->addFieldsToTab('Root.Main.SubTabs.Style', [
             $large_to_show,
             $large_to_scroll,
             $medium_breakpoint,
@@ -103,6 +129,8 @@ class HailCarouselElement extends BaseElement
 
     public function getCarouselItems()
     {
-        return $this->HailPage()->getFullHailList($this->Limit);
+        $filter_tags = empty($this->FilterTags) || $this->FilterTags === "*" ? null : $this->FilterTags;
+
+        return $this->HailPage()->getFullHailList($this->Limit, $filter_tags);
     }
 }
