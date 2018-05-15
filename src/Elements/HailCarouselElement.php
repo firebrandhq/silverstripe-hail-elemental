@@ -54,6 +54,11 @@ class HailCarouselElement extends BaseElement
         "HailPage" => "Firebrand\Hail\Pages\HailPage",
     ];
 
+    /**
+     * @inheritdoc
+     */
+    private static $icon = 'hail-icon';
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -108,8 +113,14 @@ class HailCarouselElement extends BaseElement
 
     public function forTemplate($holder = true)
     {
-        Requirements::css('resources/vendor/firebrand/silverstripe-hail-elemental/client/dist/styles/hail-carousel.bundle.css');
-        Requirements::javascript('resources/vendor/firebrand/silverstripe-hail-elemental/client/dist/js/hail-carousel.bundle.js');
+        Requirements::css('firebrand/silverstripe-hail-elemental: client/dist/styles/hail-carousel.bundle.css');
+
+        //Require jquery and bootstrap from Hail module to avoid double inclusion and to be able to globally disable this requirements for all hail modules
+        Requirements::css('firebrand/silverstripe-hail: thirdparty/bootstrap/styles/bootstrap.min.css');
+        Requirements::javascript('firebrand/silverstripe-hail: thirdparty/jquery/js/jquery.min.js');
+        Requirements::javascript('firebrand/silverstripe-hail: thirdparty/bootstrap/js/bootstrap.bundle.min.js');
+
+        Requirements::javascript('firebrand/silverstripe-hail-elemental: client/dist/js/hail-carousel.bundle.js');
 
         return parent::forTemplate($holder);
     }

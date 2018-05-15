@@ -1,4 +1,0 @@
-DNADesign\Elemental\Controllers\ElementController:
-  extra_requirements_css:
-      - vendor/firebrand/silverstripe-hail-elemental/client/styles/slick.css
-      - vendor/firebrand/silverstripe-hail-elemental/client/styles/slick-theme.css
