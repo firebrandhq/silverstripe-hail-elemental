@@ -1,0 +1,1 @@
+"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm "Ubuntu 16.04.3 LTS 64Bits v2" poweroff

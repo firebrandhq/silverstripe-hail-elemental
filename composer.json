@@ -11,8 +11,9 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "firebrand/silverstripe-hail": "4.0.x-dev",
-    "dnadesign/silverstripe-elemental": "2.x-dev"
+    "firebrand/silverstripe-hail": "^4.0",
+    "dnadesign/silverstripe-elemental": "2.x-dev",
+    "sheadawson/silverstripe-dependentdropdownfield": "^2.0"
   },
   "autoload": {
     "psr-4": {

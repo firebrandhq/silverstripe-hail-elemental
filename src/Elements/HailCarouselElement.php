@@ -11,12 +11,31 @@ use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TabSet;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\PaginatedList;
 use SilverStripe\View\Requirements;
 
+/**
+ * Hail Carousel Elemental element
+ *
+ * @package silverstripe-hail-elemental
+ * @author Marc Espiard, Firebrand
+ * @version 1.0
+ *
+ * @property string $FilterTags
+ * @property int $Limit
+ * @property string $ShowDots
+ * @property int $LargeToShow
+ * @property int $LargeToScroll
+ * @property int $MediumBreakpoint
+ * @property int $MediumToShow
+ * @property int $MediumToScroll
+ * @property int $SmallBreakpoint
+ * @property int $SmallToShow
+ * @property int $SmallToScroll
+ */
 class HailCarouselElement extends BaseElement
 {
     private static $table_name = 'HailCarouselElement';
-
     private static $db = [
         'FilterTags' => 'Text',
         'Limit' => 'Int',
@@ -30,7 +49,6 @@ class HailCarouselElement extends BaseElement
         'SmallToShow' => 'Int',
         'SmallToScroll' => 'Int',
     ];
-
     private static $defaults = [
         'Limit' => 9,
         'ShowDots' => 'No',
@@ -43,20 +61,12 @@ class HailCarouselElement extends BaseElement
         'SmallToShow' => 1,
         'SmallToScroll' => 1,
     ];
-
     private static $singular_name = 'hail carousel';
-
     private static $plural_name = 'hail carousels';
-
     private static $description = 'Add a Hail Carousel';
-
     private static $has_one = [
         "HailPage" => "Firebrand\Hail\Pages\HailPage",
     ];
-
-    /**
-     * @inheritdoc
-     */
     private static $icon = 'hail-icon';
 
     public function getCMSFields()
@@ -138,6 +148,11 @@ class HailCarouselElement extends BaseElement
         return 'Hail Carousel';
     }
 
+    /**
+     * Get the carousel items filtering them according to the element configuration
+     *
+     * @return PaginatedList
+     */
     public function getCarouselItems()
     {
         $filter_tags = empty($this->FilterTags) || $this->FilterTags === "*" ? null : $this->FilterTags;
