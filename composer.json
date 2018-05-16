@@ -2,7 +2,7 @@
   "name": "firebrand/silverstripe-hail-elemental",
   "description": "Elemental support for SilverStripe 4 Hail plugin",
   "type": "silverstripe-vendormodule",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "authors": [
     {
       "name": "Firebrand Limited",
@@ -11,7 +11,7 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "firebrand/silverstripe-hail": "^4.0",
+    "firebrandhq/silverstripe-hail": "^4.0",
     "dnadesign/silverstripe-elemental": "2.x-dev",
     "sheadawson/silverstripe-dependentdropdownfield": "^2.0"
   },
