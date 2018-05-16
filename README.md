@@ -50,9 +50,9 @@ protected function init()
 ## Usage
 
 If SilverStripe Elemental is enabled on the page you should see a Hail Carousel option in the list of elements you can add.
-The configuration of the Hail Carousel should be self explanatory, see screenshot below: 
+The configuration of the Hail Carousel should be self explanatory, see screenshot below. 
 
-You can configured the responsive breakdowns and carousel behavior from the *Style* tab.
+You can configure the responsive breakdowns and carousel behavior from the *Style* tab.
 Hail Carousel configuration:
 
 ![Hail Carousel config 1](docs/images/screen-1.PNG "Hail Carousel Config 1")
