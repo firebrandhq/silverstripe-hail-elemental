@@ -1,5 +1,5 @@
 {
-  "name": "firebrand/silverstripe-hail-elemental",
+  "name": "firebrandhq/silverstripe-hail-elemental",
   "description": "Elemental support for SilverStripe 4 Hail plugin",
   "type": "silverstripe-vendormodule",
   "license": "BSD-3-Clause",
