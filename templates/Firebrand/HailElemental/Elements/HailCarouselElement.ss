@@ -12,7 +12,7 @@
                         <% else_if $HeroImage %>
                             <img data-lazy="{$HeroImage.Url500}"/>
                         <% else %>
-                            <img data-lazy="resources/vendor/firebrand/silverstripe-hail/client/dist/images/placeholder-hero.jpg"/>
+                            <img data-lazy="resources/vendor/firebrandhq/silverstripe-hail/client/dist/images/placeholder-hero.jpg"/>
                         <% end_if %>
                     </a>
                 </div>
