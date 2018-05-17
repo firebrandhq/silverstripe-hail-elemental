@@ -80,3 +80,4 @@ Please [create an issue](https://github.com/firebrandhq/silverstripe-hail-elemen
 ## Credits
 
 [Slick Carousel by kenwheeler](https://github.com/kenwheeler/slick/)
+
