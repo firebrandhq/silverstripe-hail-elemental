@@ -36,6 +36,7 @@ use SilverStripe\View\Requirements;
 class HailCarouselElement extends BaseElement
 {
     private static $table_name = 'HailCarouselElement';
+    private static $controller_template = 'HailCarouselElementHolder';
     private static $db = [
         'FilterTags' => 'Text',
         'Limit' => 'Int',
