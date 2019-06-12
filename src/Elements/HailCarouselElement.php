@@ -80,7 +80,7 @@ class HailCarouselElement extends BaseElement
         //Create new fields
         $limit = NumericField::create('Limit', 'Limit');
         $showdots = DropdownField::create('ShowDots', 'Show dots under the carousel', ['Yes' => 'Yes', 'No' => 'No']);
-        $page = DropdownField::create('HailPageID', 'Hail Page', HailPage::get());
+        $page = DropdownField::create('HailPageID', 'Hail Page', HailPage::get())->setEmptyString("Select Hail page");
         $tag_source = function ($val) {
             $hailpage = DataObject::get_by_id(HailPage::class, $val);
             if ($hailpage) {
@@ -157,7 +157,8 @@ class HailCarouselElement extends BaseElement
     public function getCarouselItems()
     {
         $filter_tags = empty($this->FilterTags) || $this->FilterTags === "*" ? null : $this->FilterTags;
-
+        $test = $this->HailPage()->getFullHailList($this->Limit, $filter_tags);
+        $count = $test->Count();
         return $this->HailPage()->getFullHailList($this->Limit, $filter_tags);
     }
 }
