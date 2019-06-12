@@ -13,8 +13,8 @@ Silverstripe 4 module to integrate the Hail module in SilverStripe Elemental
 
 ## Requirements
 
-* [firebrandhq/silverstripe-hail ^4.0](https://github.com/firebrandhq/silverstripe-hail)
-* [dnadesign/silverstripe-elemental ^2.0](https://github.com/dnadesign/silverstripe-elemental)
+* [firebrandhq/silverstripe-hail ^4.3](https://github.com/firebrandhq/silverstripe-hail)
+* [dnadesign/silverstripe-elemental ^4.0](https://github.com/dnadesign/silverstripe-elemental)
 * [sheadawson/silverstripe-dependentdropdownfield ^2.0](https://github.com/sheadawson/silverstripe-dependentdropdownfield)
 * jQuery and Bootstrap 4.1+ (included from the SilverStripe Hail module), [see jQuery and Boostrap requirements](#jquery-and-bootstrap-requirements)
 
