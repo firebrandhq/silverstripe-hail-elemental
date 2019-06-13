@@ -23,7 +23,7 @@ Silverstripe 4 module to integrate the Hail module in SilverStripe Elemental
 **Run the following command:**
 
 ```sh
-composer require firebrandhq/silverstripe-hail-elemental "^1.0"
+composer require firebrandhq/silverstripe-hail-elemental "^2.0"
 ```
 
 **Perform a dev/build (from sake or from a browser)**
