@@ -7,7 +7,7 @@ Silverstripe 4 module to integrate the Hail module in SilverStripe Elemental
 ## Features
 
 * Add a new element to Elemental type: Hail Carousel
-* Ready to use with Bootstrap 4.1 styles and templates
+* Ready to use with Bootstrap 4.3 styles and templates
 * Responsive configuration for the Carousel
 * Mobile friendly using touch events to slide and responsive design
 
@@ -16,7 +16,7 @@ Silverstripe 4 module to integrate the Hail module in SilverStripe Elemental
 * [firebrandhq/silverstripe-hail ^4.3](https://github.com/firebrandhq/silverstripe-hail)
 * [dnadesign/silverstripe-elemental ^4.0](https://github.com/dnadesign/silverstripe-elemental)
 * [sheadawson/silverstripe-dependentdropdownfield ^2.0](https://github.com/sheadawson/silverstripe-dependentdropdownfield)
-* jQuery and Bootstrap 4.1+ (included from the SilverStripe Hail module), [see jQuery and Boostrap requirements](#jquery-and-bootstrap-requirements)
+* jQuery and Bootstrap 4.3+ (included from the SilverStripe Hail module), [see jQuery and Boostrap requirements](#jquery-and-bootstrap-requirements)
 
 ## Installation
 
@@ -30,7 +30,7 @@ composer require firebrandhq/silverstripe-hail-elemental "^2.0"
 
 ## jQuery and Bootstrap requirements
 
-We include jQuery 3.3.1 and Bootstrap 4.1 (javascript and css) from our SilverStripe Hail module
+We include jQuery 3.4.1 and Bootstrap 4.3 (javascript and css) from our SilverStripe Hail module
 
 If you need to include your own jQuery and/or Bootstrap (If you compiled Bootstrap from source or want to include those globally for example), simply block our requirement(s) by adding one or all the following to your PageController init() function:
 
