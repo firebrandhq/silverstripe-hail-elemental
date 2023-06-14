@@ -12,9 +12,9 @@
   ],
   "minimum-stability": "stable",
   "require": {
-    "firebrandhq/silverstripe-hail": "^4.3",
-    "dnadesign/silverstripe-elemental": "^4.0",
-    "sheadawson/silverstripe-dependentdropdownfield": "^2.0"
+    "firebrandhq/silverstripe-hail": "^5.0",
+    "dnadesign/silverstripe-elemental": "^5.0",
+    "sheadawson/silverstripe-dependentdropdownfield": "^3.0"
   },
   "autoload": {
     "psr-4": {
